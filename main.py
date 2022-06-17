@@ -6,7 +6,7 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 # ------------------- FLASH CARDS SETUP ------------------- #
 
-df = pandas.read_csv("data/1000-esp-en-words.csv")
+df = pandas.read_csv("1000-esp-en-words.csv")
 df = df.to_dict(orient="records")
 
 selected_word = {}
@@ -72,8 +72,8 @@ window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 flip_timer = window.after(3000, func=flip_card)
 
 canvas = Canvas(width=500, height=350, highlightthickness=0, bg=BACKGROUND_COLOR)
-card_front_img = PhotoImage(file="images/card_front.gif")
-card_back_img = PhotoImage(file="images/card_back.gif")
+card_front_img = PhotoImage(file="card_front.gif")
+card_back_img = PhotoImage(file="card_back.gif")
 card_background = canvas.create_image(250, 175, image=card_front_img)
 card_lang = canvas.create_text(250, 100, text="", fill="black", font=("Ariel", 25, "italic"))
 card_word = canvas.create_text(250, 200, text="", fill="black", font=("Ariel", 35, "bold"))
@@ -81,13 +81,13 @@ canvas.grid(column=0, row=0, columnspan=2)
 
 #Buttons
 
-wrong_img = PhotoImage(file="images/wrong.gif")
+wrong_img = PhotoImage(file="wrong.gif")
 wrong_button = Button(image=wrong_img, highlightthickness=0, highlightbackground=BACKGROUND_COLOR,
                       highlightcolor=BACKGROUND_COLOR, bd=0, command=random_card)
 
 wrong_button.grid(column=0, row=1)
 
-right_img = PhotoImage(file="images/right.gif")
+right_img = PhotoImage(file="right.gif")
 right_button = Button(image=right_img, highlightthickness=0, highlightbackground=BACKGROUND_COLOR, bd=0,
                       command=remove_word)
 right_button.grid(column=1, row=1)
